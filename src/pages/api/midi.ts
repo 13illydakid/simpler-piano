@@ -39,10 +39,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       console.error(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
       stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
     }
+    return proxy(stream, res);
   } else {
     console.error(`Requesting URL: Not Found`);
+    res.status(400).send('Invalid source');
+    return;
   }
-  return proxy(stream, res);
 }
 
 async function get(url: string): Promise<IncomingMessage> {
