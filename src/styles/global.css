@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font stuff */
+@font-face {
+  font-family: Leland;
+  src: url('fonts/Leland/Leland.otf') format('opentype');
+  font-feature-settings: 'ccmp';
+}
+
+body {
+  font-family: var(--primary-font-family);
+  /* background-color: yellow 500%;
+  z-index: 100; */
+}
+
+/* Frame.module.css */
