@@ -1,5 +1,5 @@
-import { isPiano, parseMidi, parseMusicXml } from '../src2/features/parsers'
-import { Song, Track } from '../src2/types'
+import { isPiano, parseMidi, parseMusicXml } from '@/features/parsers'
+import { Song, Track } from '@/types'
 import fs from 'fs'
 
 export function getPianoTracks(parsed: Song): Track[] {

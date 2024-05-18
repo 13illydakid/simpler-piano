@@ -10,7 +10,7 @@ const window = new jsdom.JSDOM().window
 const pathJoin = require('path').join
 globalThis.DOMParser = window.DOMParser
 globalThis.NodeFilter = window.NodeFilter
-import { Song } from '../src2/types'
+import { Song } from '@/types'
 import { parseFile, getPianoTracks, last } from './utils'
 
 const MIDIS_DIR = '/Users/jake/Music/midis/BitMidi'
