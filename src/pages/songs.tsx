@@ -31,7 +31,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
 async function getMidishareManifest() {
   try {
-    return (await fetch(`https://${process.env.VERCEL_URL}/music/songs`)).json()
+    // return (await fetch(`https://${process.env.VERCEL_URL}/music/songs`)).json()
+    return "!!!!!!";
   } catch (err: any) {
     console.error(`${new Date().toUTCString()}: Error Songs not found!`)
     return {}
