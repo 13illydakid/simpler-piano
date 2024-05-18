@@ -3,15 +3,15 @@ import { Home } from '@/features/pages';
 // TODO: Remove waterfall by sending needed MIDI data for the page via initial server render.
 //       Need to encode MIDI in a string. Base64 can help (1.37x space), unsure if there are more efficient ways.
 
-import { SongMetadata } from '@/types'
+import { SongMetadata, SongSource } from '@/types'
 import { GetStaticProps } from 'next'
 import fs from 'fs'
 
-export const FEATURED_SONGS = {
-  fur_elise: { source: 'builtin', id: 'b3decef157a073fbef49430250bb7015' },
-  twinkle: { source: 'builtin', id: 'ec6acc14d631630c22ca796d0a5d5b0a' },
-  moonlight: { source: 'builtin', id: '33e41ebf6367374ce7a5f033a5baa796' },
-}
+export const FEATURED_SONGS: { [id: string]: { source: SongSource; id: string } } = {
+  counting: { source: 'builtin', id: 'fa7a5d0bf5012a4cb4a19f1de2e58b10' },
+  sindria: { source: 'builtin', id: 'b50ee876b785c66a70dba3159d21e81e' },
+  lullaby: { source: 'builtin', id: 'bb4edb91d3a12b8c745e59b8435f74c2' },
+};
 
 export const getStaticProps: GetStaticProps = async () => {
   const featuredSongIds = new Set(Object.values(FEATURED_SONGS).map((s) => s.id))

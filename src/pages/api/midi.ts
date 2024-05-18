@@ -39,9 +39,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     } else {
       console.error(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
       // stream = fs.createReadStream(`public/${path}`);
+
       console.log("!!!!!!!!!!!!");
       // stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
-      stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
+      stream = await get(`https://${process.env.VERCEL_URL}/public/${path}`);
       console.log(stream);
       console.log("!!!!!!!!!!!!");
       // stream = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
