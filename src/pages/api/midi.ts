@@ -51,7 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       // let streamError = await get(`https://${process.env.VERCEL_URL}/${path}`);
       // let streamError = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
       // stream = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
-      stream = await getStream(`https://${process.env.VERCEL_URL}/${path}`);
+      stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
       console.log(stream);
 
       ///////////////////////////////////////////
@@ -70,17 +70,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       // stream = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
 
     }
-    return proxy(stream, res);
   } else {
     console.error(`Requesting URL: Not Found`);
     res.status(400).send('Invalid source');
     return;
   }
+  return proxy(stream, res);
 }
 
 
-async function getStream(url: string): Promise<NodeJS.ReadableStream> {
-// async function getStream(url: string): Promise<IncomingMessage> {
+// async function getStream(url: string): Promise<NodeJS.ReadableStream> {
+async function getStream(url: string): Promise<IncomingMessage> {
   const response = await axios.get(url, { responseType: 'stream' });
   return response.data;
 }
