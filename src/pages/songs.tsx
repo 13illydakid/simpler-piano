@@ -1,7 +1,7 @@
 import type { GetStaticProps } from 'next';
 import { SelectSong } from '@/features/pages';
 import { SongMetadata } from '@/types';
-/*
+
 export type MidishareManifestSong = {
   title: string
   artist?: string
@@ -18,7 +18,7 @@ export type MidishareManifestSong = {
 export const getStaticProps: GetStaticProps = async () => {
   const midishareMetadata: SongMetadata[] = Object.values(await getMidishareManifest())
   for (const song of midishareMetadata) {
-    song.source = 'builtin';
+    song.source = 'midishare'
   }
 
   return {
@@ -31,12 +31,11 @@ export const getStaticProps: GetStaticProps = async () => {
 
 async function getMidishareManifest() {
   try {
-    // return (await fetch(`https://${process.env.VERCEL_URL}/music/songs`)).json()
-    return {};
+    return (await fetch('https://midishare.dev/api/midis')).json()
   } catch (err: any) {
-    console.error(`${new Date().toUTCString()}: Error Songs not found!`)
-    return {};
+    console.error(`${new Date().toUTCString()}: Error reaching midishare.dev`)
+    return {}
   }
 }
-*/
+
 export default SelectSong;
