@@ -8,8 +8,8 @@ const jsdom = require('jsdom')
 const window = new jsdom.JSDOM().window
 globalThis.DOMParser = window.DOMParser
 globalThis.NodeFilter = window.NodeFilter
-import { parseMidi, parseMusicXml } from '../src2/features/parsers'
-import type { Song, SongMetadata } from '../src2/types'
+import { parseMidi, parseMusicXml } from '@/features/parsers'
+import type { Song, SongMetadata } from '@/types'
 import { musicFiles } from './songdata'
 import crypto, { BinaryLike } from 'crypto'
 import fs from 'fs'

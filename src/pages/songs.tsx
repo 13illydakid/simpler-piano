@@ -1,7 +1,7 @@
 import type { GetStaticProps } from 'next';
 import { SelectSong } from '@/features/pages';
 import { SongMetadata } from '@/types';
-
+/*
 export type MidishareManifestSong = {
   title: string
   artist?: string
@@ -38,5 +38,5 @@ async function getMidishareManifest() {
     return {};
   }
 }
-
+*/
 export default SelectSong;

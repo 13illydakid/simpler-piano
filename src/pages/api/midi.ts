@@ -36,16 +36,35 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     if (process.env.NODE_ENV === 'development') {
       stream = fs.createReadStream(`public/${path}`);
       console.log(stream);
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!Testing!!!!!!!!!");
+      console.log(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
+      let streamError = await get(`https://${process.env.VERCEL_URL}/${path}`);
+      console.log(streamError);
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     } else {
+
+      // stream = fs.createReadStream(`public/${path}`);
+      // console.log(stream);
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!Testing!!!!!!!!!");
+      console.log(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
+      // let streamError = await get(`https://${process.env.VERCEL_URL}/${path}`);
+      // let streamError = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
+      stream = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
+      console.log(stream);
+
+      ///////////////////////////////////////////
+
+      // stream = fs.createReadStream(`public/${path}`);
+      /*
       console.error(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
       console.log(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
-      // stream = fs.createReadStream(`public/${path}`);
 
       console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!Testing!!!!!!!!!");
-      // stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
       stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
       console.log(stream);
       console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+      */
+      // stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
       // stream = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
 
     }
