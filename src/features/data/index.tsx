@@ -20,8 +20,8 @@ function getSongUrl(id: string, source: SongSource) {
 
 export function useSong(id: string, source: SongSource): FetchState<Song> {
   const url =
-    // id && source && (source === 'midishare' || source === 'builtin')
-    id && source && (source === 'builtin')
+    id && source && (source === 'generated' || source === 'builtin')
+    // id && source && (source === 'builtin')
       ? getSongUrl(id, source)
       : undefined
   const fetchState = useFetch(url, handleSong)
