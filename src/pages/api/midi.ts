@@ -79,8 +79,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 }
 
 
-// async function getStream(url: string): Promise<NodeJS.ReadableStream> {
-async function getStream(url: string): Promise<IncomingMessage> {
+async function getStream(url: string): Promise<NodeJS.ReadableStream> {
+// async function getStream(url: string): Promise<IncomingMessage> {
   const response = await axios.get(url, { responseType: 'stream' });
   return response.data;
 }
