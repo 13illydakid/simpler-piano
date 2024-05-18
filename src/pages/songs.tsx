@@ -1,7 +1,7 @@
 import type { GetStaticProps } from 'next';
 import { SelectSong } from '@/features/pages';
 import { SongMetadata } from '@/types';
-/*
+
 export type MidishareManifestSong = {
   title: string
   artist?: string
@@ -18,7 +18,7 @@ export type MidishareManifestSong = {
 export const getStaticProps: GetStaticProps = async () => {
   const midishareMetadata: SongMetadata[] = Object.values(await getMidishareManifest())
   for (const song of midishareMetadata) {
-    song.source = 'midishare'
+    song.source = 'builtin';
   }
 
   return {
@@ -26,16 +26,16 @@ export const getStaticProps: GetStaticProps = async () => {
     revalidate: 60 * 60, // once an hour.
   }
 }
-*/
+
 // Page should operate even if/when midishare is down.
-/*
+
 async function getMidishareManifest() {
   try {
-    return (await fetch('https://midishare.dev/api/midis')).json()
+    return (await fetch(`https://${process.env.VERCEL_URL}/music/songs`)).json()
   } catch (err: any) {
-    console.error(`${new Date().toUTCString()}: Error reaching midishare.dev`)
+    console.error(`${new Date().toUTCString()}: Error Songs not found!`)
     return {}
   }
 }
-*/
+
 export default SelectSong;

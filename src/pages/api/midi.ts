@@ -35,11 +35,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     // When deployed we don't have access to fs, but can proxy to the hosted /public.
     if (process.env.NODE_ENV === 'development') {
       stream = fs.createReadStream(`public/${path}`);
+      console.log(stream);
     } else {
       console.error(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
       // stream = fs.createReadStream(`public/${path}`);
+      console.log("!!!!!!!!!!!!");
+      // stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
       stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
       console.log(stream);
+      console.log("!!!!!!!!!!!!");
       // stream = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
 
     }
