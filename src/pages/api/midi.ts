@@ -6,6 +6,7 @@ import fs, { ReadStream } from 'fs';
 import { SongMetadata } from '@/types';
 import https from 'https';
 import { NextResponse } from 'next/server';
+import axios from 'axios';
 
 const songManifest = require('@/manifest.json');
 const map: Map<string, SongMetadata> = new Map(songManifest.map((s: SongMetadata) => [s.id, s]));
@@ -49,7 +50,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       console.log(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
       // let streamError = await get(`https://${process.env.VERCEL_URL}/${path}`);
       // let streamError = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
-      stream = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
+      // stream = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
+      stream = await getStream(`https://${process.env.VERCEL_URL}/${path}`);
       console.log(stream);
 
       ///////////////////////////////////////////
@@ -74,6 +76,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     res.status(400).send('Invalid source');
     return;
   }
+}
+
+
+// async function getStream(url: string): Promise<NodeJS.ReadableStream> {
+async function getStream(url: string): Promise<IncomingMessage> {
+  const response = await axios.get(url, { responseType: 'stream' });
+  return response.data;
 }
 
 async function get(url: string): Promise<IncomingMessage> {
