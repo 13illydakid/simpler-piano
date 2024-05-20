@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/music/songs/(.*).mid",
+      "source": "/public/music/songs/(.*).mid",
       "headers": [
         {
           "key": "Content-Type",
