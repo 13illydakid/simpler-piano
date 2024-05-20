@@ -31,9 +31,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
 async function getMidishareManifest() {
   try {
-    return (await fetch('https://midishare.dev/api/midis')).json()
+    return (await fetch('https://localhost:3000/public/api/midis')).json()
+    // return {};
   } catch (err: any) {
-    console.error(`${new Date().toUTCString()}: Error reaching midishare.dev`)
+    console.error(`${new Date().toUTCString()}: Error reaching songs folder`)
     return {}
   }
 }

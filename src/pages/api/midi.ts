@@ -1,6 +1,7 @@
 import type { Stream } from 'stream';
 import { IncomingMessage } from 'http';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { parseMidi } from '@/features/parsers';
 
 import fs, { ReadStream } from 'fs';
 import { SongMetadata } from '@/types';
@@ -8,8 +9,12 @@ import https from 'https';
 import { NextResponse } from 'next/server';
 import axios from 'axios';
 
+
+// import songManifest from '@/manifest.json';
 const songManifest = require('@/manifest.json');
 const map: Map<string, SongMetadata> = new Map(songManifest.map((s: SongMetadata) => [s.id, s]));
+
+
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   const { id, source } = req.query;
@@ -35,41 +40,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     // In development we have access to the filesystem but can't hit localhost with https.
     // When deployed we don't have access to fs, but can proxy to the hosted /public.
     if (process.env.NODE_ENV === 'development') {
+      console.log(`public/${path}`);
       stream = fs.createReadStream(`public/${path}`);
       console.log(stream);
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!Testing!!!!!!!!!");
-      console.log(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
-      let streamError = await get(`https://${process.env.VERCEL_URL}/${path}`);
-      console.log(streamError);
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    } else {
-
-      // stream = fs.createReadStream(`public/${path}`);
-      // console.log(stream);
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!Testing!!!!!!!!!");
       console.log(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
       // let streamError = await get(`https://${process.env.VERCEL_URL}/${path}`);
-      // let streamError = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
-      // stream = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
-      stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
-      console.log(stream);
+      // console.log(streamError);
+    } else {
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!Testing Start!!!!!!!!!");
 
-      ///////////////////////////////////////////
-
-      // stream = fs.createReadStream(`public/${path}`);
-      /*
-      console.error(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
-      console.log(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
-
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!Testing!!!!!!!!!");
-      stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
-      console.log(stream);
+      stream = fs.createReadStream(`public/${path}`);
+      const axiosGet = async () => {
+        try {
+          stream = await axios.get(`/public/${path}`);
+          console.log(stream);
+        } catch (error) {
+          console.error('Error retrieving midi songs', error);
+        }
+      }
+      axiosGet();
       console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-      */
-      // stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
-      // stream = fs.createReadStream(`https://${process.env.VERCEL_URL}/${path}`);
+      console.log(`public/${path}`);
 
-    }
+      // let streaming = await fetch(`https://${process.env.VERCEL_URL}/${path}`);
+
+      // stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
+      // console.log(stream);
+
+  }
   } else {
     console.error(`Requesting URL: Not Found`);
     res.status(400).send('Invalid source');
@@ -79,17 +77,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 }
 
 
-// async function getStream(url: string): Promise<NodeJS.ReadableStream> {
-async function getStream(url: string): Promise<IncomingMessage> {
-  const response = await axios.get(url, { responseType: 'stream' });
-  return response.data;
-}
+// // async function getStream(url: string): Promise<NodeJS.ReadableStream> {
+//   async function getStream(url: string): Promise<IncomingMessage> {
+//     const response = await axios.get(url, { responseType: 'stream' });
+//     return response.data;
+//   }
 
-async function get(url: string): Promise<IncomingMessage> {
-  return new Promise((resolve, reject) => {
-    const req = https.get(url);
-    req.on('response', (response) => resolve(response));
-    req.on('error', (err) => reject(err));
+  async function get(url: string): Promise<IncomingMessage> {
+    return new Promise((resolve, reject) => {
+      const req = https.get(url);
+      req.on('response', (response) => resolve(response));
+      req.on('error', (err) => reject(err));
   });
 }
 

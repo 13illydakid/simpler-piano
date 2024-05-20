@@ -15,8 +15,8 @@ export function getKey(id: string, source: SongSource) {
 }
 
 function getSongUrl(id: string, source: SongSource) {
-  // return `/api/midi?id=${id}&source=${source}`
-  return `/music/songs?id=${id}&source=${source}`
+  return `/api/midi?id=${id}&source=${source}`
+  // return `public/music/songs/?id=${id}&source=${source}`
 }
 
 export function useSong(id: string, source: SongSource): FetchState<Song> {

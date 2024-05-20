@@ -13,7 +13,7 @@ globalThis.NodeFilter = window.NodeFilter
 import { Song } from '@/types'
 import { parseFile, getPianoTracks, last } from './utils'
 
-const MIDIS_DIR = '/Users/jake/Music/midis/BitMidi'
+const MIDIS_DIR = '/Users/'
 const GOOD_DIR = pathJoin(MIDIS_DIR, 'good')
 const MIDI_FILES = fs.readdirSync(MIDIS_DIR)
 
