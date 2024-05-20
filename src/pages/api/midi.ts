@@ -61,15 +61,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       // axiosGet();
 
             // When deployed, make a GET request to the file in the public directory
-            const response = await axios.get(`${process.env.VERCEL_URL}/public/${path}`, { responseType: 'stream' });
-            stream = response.data;
+            // const response = await axios.get(`${process.env.VERCEL_URL}/public/${path}`, { responseType: 'stream' });
+            // stream = response.data;
       console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
       console.log(`public/${path}`);
 
       // let streaming = await fetch(`https://${process.env.VERCEL_URL}/${path}`);
 
-      // stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
-      // console.log(stream);
+      stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
+      console.log(stream);
 
   }
   } else {
@@ -77,8 +77,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     res.status(400).send('Invalid source');
     return;
   }
-  stream.pipe(res);
-  // return proxy(stream, res);
+  // stream.pipe(res);
+  return proxy(stream, res);
 }
 
 
