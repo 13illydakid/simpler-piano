@@ -78,7 +78,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return;
   }
   stream.pipe(res);
-  return proxy(stream, res);
+  // return proxy(stream, res);
 }
 
 
