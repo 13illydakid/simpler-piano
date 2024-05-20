@@ -68,7 +68,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
       // let streaming = await fetch(`https://${process.env.VERCEL_URL}/${path}`);
 
-      stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
+      stream = await get(`public/${path}`);
       console.log(stream);
 
   }

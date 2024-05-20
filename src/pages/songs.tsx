@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
 async function getMidishareManifest() {
   try {
     // return (await fetch(`https://${process.env.VERCEL_URL}/public/music/songs`)).json()
-    return (await axios.get(`${process.env.VERCEL_URL}/public/music/songs`)).data;
+    return (await axios.get(`/public/music/songs`)).data;
     // return {};
   } catch (err: any) {
     console.error(`${new Date().toUTCString()}: Error reaching songs folder`)
