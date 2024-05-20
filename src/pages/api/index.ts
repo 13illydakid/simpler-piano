@@ -14,9 +14,11 @@ const path = require('path');
 app.use('../public', express.static(__dirname + '../public'));
 
 app.get('/public', async (req, res) => {
-  res.sendFile(
-    path.resolve(__dirname + '../public')
-  );
+  // res.sendFile(
+  //   path.resolve(__dirname + '../public')
+  // );
+  const response = await fetch(__dirname + '../public');
+  res.json(response);
   // try {
   //   const response = await axios.get(`http://${process.env.VERCEL_BUILD}`)
   // }
