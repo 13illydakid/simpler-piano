@@ -49,16 +49,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     } else {
       console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!Testing Start!!!!!!!!!");
 
-      stream = fs.createReadStream(`public/${path}`);
-      const axiosGet = async () => {
-        try {
-          stream = await axios.get(`/public/${path}`);
-          console.log(stream);
-        } catch (error) {
-          console.error('Error retrieving midi songs', error);
-        }
-      }
-      axiosGet();
+      // stream = fs.createReadStream(`public/${path}`);
+      // const axiosGet = async () => {
+      //   try {
+      //     stream = await axios.get(`/public/${path}`);
+      //     console.log(stream);
+      //   } catch (error) {
+      //     console.error('Error retrieving midi songs', error);
+      //   }
+      // }
+      // axiosGet();
+
+            // When deployed, make a GET request to the file in the public directory
+            const response = await axios.get(`${process.env.VERCEL_URL}/public/${path}`, { responseType: 'stream' });
+            stream = response.data;
       console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
       console.log(`public/${path}`);
 
@@ -73,6 +77,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     res.status(400).send('Invalid source');
     return;
   }
+  stream.pipe(res);
   return proxy(stream, res);
 }
 

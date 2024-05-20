@@ -17,8 +17,8 @@ const inter = Inter({
 
 // axios.defaults.baseURL = 'postgres://default:XBy6wI9ibYcH@ep-bitter-feather-72486321.us-west-2.postgres.vercel-storage.com:5432/verceldb';
 // axios.defaults.baseURL = '../../../backend/routes/api';
-axios.defaults.baseURL = (`https://${process.env.VERCEL_URL}`);
-axios.defaults.withCredentials = true;
+// axios.defaults.baseURL = (`https://${process.env.VERCEL_URL}`);
+// axios.defaults.withCredentials = true;
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();

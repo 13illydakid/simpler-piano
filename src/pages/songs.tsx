@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 async function getMidishareManifest() {
   try {
-    return (await fetch(`https://${process.env.VERCEL_URL}/public/api/midi`)).json()
+    return (await fetch(`https://${process.env.VERCEL_URL}/public/music/songs`)).json()
     // return {};
   } catch (err: any) {
     console.error(`${new Date().toUTCString()}: Error reaching songs folder`)
