@@ -1,4 +1,4 @@
-import type { GetStaticProps } from 'next';
+import type { GetServerSideProps } from 'next';
 import { SelectSong } from '@/features/pages';
 import { SongMetadata } from '@/types';
 import axios from 'axios';
@@ -16,7 +16,7 @@ export type MidishareManifestSong = {
   midiUrl: string
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const midishareMetadata: SongMetadata[] = Object.values(await getMidishareManifest())
   for (const song of midishareMetadata) {
     song.source = 'midishare'
@@ -24,7 +24,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { songMetadata: midishareMetadata },
-    revalidate: 60 * 60, // once an hour.
   }
 }
 

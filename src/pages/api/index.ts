@@ -11,14 +11,21 @@ app.use(express.json());
 
 const path = require('path');
 // app.use('../public', express.static(path.resolve(__dirname + '../public')));
-app.use('../public', express.static(__dirname + '../public'));
+app.use('/public');
 
 app.get('/public', async (req, res) => {
   // res.sendFile(
   //   path.resolve(__dirname + '../public')
   // );
-  const response = await fetch(__dirname + '../public');
-  res.json(response);
+  try {
+    const response = await fetch(__dirname + '../public');
+    res.json(response);
+    console.log("get requests works!!");
+  } catch (error) {
+    console.error(error);
+    res.status(500).json('Axios is not making request');
+  }
+
   // try {
   //   const response = await axios.get(`http://${process.env.VERCEL_BUILD}`)
   // }
@@ -62,4 +69,5 @@ app.get('/test', async (req, res) => {
 //   res.json('test ok');
 // });
 
-app.listen(3001);
+app.listen(`https://${process.env.VERCEL_URL}`);
+// app.listen(3000);
