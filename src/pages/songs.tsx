@@ -2,6 +2,7 @@ import type { GetStaticProps } from 'next';
 import { SelectSong } from '@/features/pages';
 import { SongMetadata } from '@/types';
 import axios from 'axios';
+import manifest from '@/manifest.json';
 
 export type MidishareManifestSong = {
   title: string
@@ -32,9 +33,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
 async function getMidishareManifest() {
   try {
-    // return (await fetch(`https://${process.env.VERCEL_URL}/public/music/songs`)).json()
+    // return (await fetch(`https://${process.env.VERCEL_URL}/music/songs`)).json()
     // return (await axios.get(`/music/songs`)).data;
-    return (await fetch(`/music/songs`)).json();
+    // return (await fetch(`/music/songs`)).json();
+    return manifest;
     // return {};
   } catch (err: any) {
     console.error(`${new Date().toUTCString()}: Error reaching songs folder`)

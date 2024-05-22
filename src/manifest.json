@@ -1,6 +1,6 @@
 [
   {
-    "file": "music/songs/Counting Stars.mid",
+    "file": "music/songs/Counting-Stars.mid",
     "title": "Counting Stars",
     "artist": "One Republic",
     "source": "builtin",
@@ -8,7 +8,7 @@
     "duration": 119.14015151515304
   },
   {
-    "file": "music/songs/Drunken Dreams of the Past.mid",
+    "file": "music/songs/Drunken-Dreams-of-the-Past.mid",
     "title": "Drunken Dreams of the Past",
     "artist": "Mo Dao Zu Shi",
     "source": "builtin",
@@ -16,7 +16,7 @@
     "duration": 33.850000000000016
   },
   {
-    "file": "music/songs/Attack on Titan.mid",
+    "file": "music/songs/Attack-on-Titan.mid",
     "title": "Attack on Titan",
     "artist": "Hiroyuki Sawano",
     "source": "builtin",
@@ -32,7 +32,7 @@
     "duration": 23.95
   },
   {
-    "file": "music/songs/Graduation C-Friends Forever.mid",
+    "file": "music/songs/Graduation-C-Friends-Forever.mid",
     "title": "Graduation C-Friends Forever",
     "artist": "Graduation C",
     "source": "builtin",
@@ -48,7 +48,7 @@
     "duration": 64.45735294117637
   },
   {
-    "file": "music/songs/L'Arabesque Sindria.mid",
+    "file": "music/songs/L'Arabesque-Sindria.mid",
     "title": "L'Arabesque Sindria",
     "artist": "Magi",
     "source": "builtin",

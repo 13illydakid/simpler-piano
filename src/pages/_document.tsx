@@ -20,12 +20,12 @@ class MyDocument extends Document {
           <meta name="description" content="🎹 Learn to play piano with Simpler Piano" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
-          <link rel="manifest" href="../manifest.json" />
+          <link rel="manifest" href="@/manifest.json" />
 
           <link rel="icon" href="favicon.ico" />
           <link rel="apple-touch-icon" href="favicon.ico" />
 
-          
+
         </Head>
         <body>
           <Main />
