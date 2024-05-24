@@ -25,6 +25,6 @@
     },
     "incremental": true
   },
-  "include": ["src", "public", "scripts"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
