@@ -24,7 +24,7 @@
     "duration": 127.08000000000034
   },
   {
-    "file": "music/songs/Fairy Tail Main Theme.mid",
+    "file": "music/songs/Fairy-Tail-Main-Theme.mid",
     "title": "Fairy Tail Main Theme",
     "artist": "Fairy Tail",
     "source": "builtin",
@@ -40,7 +40,7 @@
     "duration": 119.9711538461538
   },
   {
-    "file": "music/songs/Isabella's Lullaby.mid",
+    "file": "music/songs/Isabella's-Lullaby.mid",
     "title": "Isabella's Lullaby",
     "artist": "The Promised Neverland",
     "source": "builtin",
@@ -56,7 +56,7 @@
     "duration": 41.33263888888888
   },
   {
-    "file": "music/songs/Rhythm Emotion.mid",
+    "file": "music/songs/Rhythm-Emotion.mid",
     "title": "Rhythm Emotion",
     "artist": "Gundam Wing",
     "source": "builtin",
@@ -64,7 +64,7 @@
     "duration": 34.88181818181824
   },
   {
-    "file": "music/songs/Soundscape to Ardor.mid",
+    "file": "music/songs/Soundscape-to-Ardor.mid",
     "title": "Soundscape to Ardor",
     "artist": "Bleach",
     "source": "builtin",
@@ -72,7 +72,7 @@
     "duration": 379.92857142857196
   },
   {
-    "file": "music/songs/上海灘 (The Bund).mid",
+    "file": "music/songs/The-Bund.mid",
     "title": "上海灘 (The Bund)",
     "artist": "Shanghai Bund",
     "source": "builtin",
