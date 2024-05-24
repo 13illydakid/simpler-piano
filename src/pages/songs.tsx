@@ -34,11 +34,11 @@ export const getStaticProps: GetStaticProps = async () => {
 async function getMidishareManifest() {
   try {
     // return (await fetch(`https://${process.env.VERCEL_URL}/music/songs`)).json()
-    return (await fetch(`https://song-api-peach.vercel.app/music/songs`)).json()
+    // return (await fetch(`https://song-api-peach.vercel.app/api/midis`)).json()
     // return (await axios.get(`/music/songs`)).data;
     // return (await fetch(`/music/songs`)).json();
     // return manifest;
-    // return {};
+    return {};
   } catch (err: any) {
     console.error(`${new Date().toUTCString()}: Error reaching songs folder`)
     return {}
