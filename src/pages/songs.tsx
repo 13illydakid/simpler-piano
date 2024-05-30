@@ -34,7 +34,18 @@ export const getStaticProps: GetStaticProps = async () => {
 async function getMidishareManifest() {
   try {
     // return (await fetch(`https://${process.env.VERCEL_URL}/music/songs`)).json()
-    return (await fetch(`https://song-api-peach.vercel.app/api/midis`)).json()
+    // return (await fetch(`https://song-api-peach.vercel.app/api/midis`)).json();
+    console.log("Song Data!!!!!!!!");
+    const songData = await fetch('https://midishare.dev/api/midis');
+    console.log(songData);
+    console.log("Song Data in JSON!!!!!!!!");
+    console.log(songData);
+    // console.log(songData.json());
+    // return songData.json();
+    console.log("!!!!!!!!!!!!!!!!!!!!!!Below!!!!!!!!!!!!!!!!!!!!!!!!");
+    console.log((await fetch('https://midishare.dev/api/midis')).json());
+    console.log("!!!!!!!!!!!!!!!!!!!!!!Above!!!!!!!!!!!!!!!!!!!!!!!!");
+    return (await fetch('https://midishare.dev/api/midis')).json();
     // return (await axios.get(`/music/songs`)).data;
     // return (await fetch(`/music/songs`)).json();
     // return manifest;

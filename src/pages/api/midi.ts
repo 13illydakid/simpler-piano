@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   }
 
   let stream: Stream;
-  if (source === 'builtin') {
+  if (source === 'builtin' || source === 'midishare') {
     const path = map.get(id)?.file;
     if (!path) {
       res.status(404).send(`Could not find midi with id: "${id}"`);
