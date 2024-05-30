@@ -79,7 +79,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return;
   }
   // stream.pipe(res);
-  return proxy(stream, res);
+  // return proxy(stream, res);
+  return proxy(await get(`https://${process.env.VERCEL_URL}/${path}`), res);
 }
 
 
