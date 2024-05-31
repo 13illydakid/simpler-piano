@@ -26,6 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const path = map.get(id)?.file;
     if (!path) {
       res.status(404).send(`Could not find midi with id: "${id}"`);
+      return;
     }
     res.writeHead(200, { 'Content-Type': 'audio/midi' });
     // In development we have access to the filesystem but can't hit localhost with https.
@@ -36,13 +37,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     } else {
       // When deployed, make a GET request to the file in the public directory
       stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
+      return proxy(stream, res);
   }
-  } /* else {
+  } else {
     console.error(`Requesting URL: Not Found`);
     res.status(400).send('Invalid source');
     return;
-  } */
-  return proxy(stream, res);
+  }
   // return proxy(await get(`https://${process.env.VERCEL_URL}/music/songs`), res);
 }
 
