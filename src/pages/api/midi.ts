@@ -1,20 +1,13 @@
 import type { Stream } from 'stream';
 import { IncomingMessage } from 'http';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { parseMidi } from '@/features/parsers';
-
-import fs, { ReadStream } from 'fs';
+// import fs, { ReadStream } from 'fs';
+import fs from 'fs';
 import { SongMetadata } from '@/types';
 import https from 'https';
-import { NextResponse } from 'next/server';
-import axios from 'axios';
 
-
-// import songManifest from '@/manifest.json';
 const songManifest = require('@/manifest.json');
 const map: Map<string, SongMetadata> = new Map(songManifest.map((s: SongMetadata) => [s.id, s]));
-
-
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   const { id, source } = req.query;
@@ -28,7 +21,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     res.status(400).send(`Received invalid source: ${source}`);
     return;
   }
-
   let stream: Stream;
   if (source === 'builtin' || source === 'midishare') {
     const path = map.get(id)?.file;
@@ -36,59 +28,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       res.status(404).send(`Could not find midi with id: "${id}"`);
     }
     res.writeHead(200, { 'Content-Type': 'audio/midi' });
-
     // In development we have access to the filesystem but can't hit localhost with https.
     // When deployed we don't have access to fs, but can proxy to the hosted /public.
     if (process.env.NODE_ENV === 'development') {
-      console.log(`public/${path}`);
       stream = fs.createReadStream(`public/${path}`);
-      console.log(stream);
       console.log(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
-      // let streamError = await get(`https://${process.env.VERCEL_URL}/${path}`);
-      // console.log(streamError);
     } else {
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!Testing Start!!!!!!!!!");
-
-      // stream = fs.createReadStream(`public/${path}`);
-      // const axiosGet = async () => {
-      //   try {
-      //     stream = await axios.get(`/public/${path}`);
-      //     console.log(stream);
-      //   } catch (error) {
-      //     console.error('Error retrieving midi songs', error);
-      //   }
-      // }
-      // axiosGet();
-
-            // When deployed, make a GET request to the file in the public directory
-            // const response = await axios.get(`${process.env.VERCEL_URL}/public/${path}`, { responseType: 'stream' });
-            // stream = response.data;
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-      console.log(`public/${path}`);
-
-      // let streaming = await fetch(`https://${process.env.VERCEL_URL}/${path}`);
-
-      // stream = await get(`public/${path}`);
+      // When deployed, make a GET request to the file in the public directory
       stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
-      console.log(stream);
-
   }
-  } else {
+  } /* else {
     console.error(`Requesting URL: Not Found`);
     res.status(400).send('Invalid source');
     return;
-  }
-  // stream.pipe(res);
-  // return proxy(stream, res);
-  return proxy(await get(`https://${process.env.VERCEL_URL}/music/songs`), res);
+  } */
+  return proxy(stream, res);
+  // return proxy(await get(`https://${process.env.VERCEL_URL}/music/songs`), res);
 }
-
-
-// // async function getStream(url: string): Promise<NodeJS.ReadableStream> {
-//   async function getStream(url: string): Promise<IncomingMessage> {
-//     const response = await axios.get(url, { responseType: 'stream' });
-//     return response.data;
-//   }
 
   async function get(url: string): Promise<IncomingMessage> {
     return new Promise((resolve, reject) => {
