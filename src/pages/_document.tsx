@@ -19,7 +19,7 @@ class MyDocument extends Document {
           <meta name="description" content="🎹 Learn to play piano with Simpler Piano" />
 
           <link rel="icon" href="favicon.ico" />
-          <link rel="apple-touch-icon" href="favicon.ico" />
+          {/* <link rel="apple-touch-icon" href="favicon.ico" /> */}
 
           <meta property="og:title" content="Simpler Piano" />
           <meta property="og:description" content="🎹 Free app for learning to play Piano" />

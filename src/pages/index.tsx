@@ -18,8 +18,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const featuredSongBytes: ArrayBuffer[] = require('@/manifest.json')
     .filter((s: SongMetadata) => featuredSongIds.has(s.id))
     .map((s: SongMetadata) => {
-      const path = `public/${s.file}`
-      // const path = `${s.file}`
+      // const path = `public/${s.file}`
+      const path = `${s.file}`
       const buffer = new Uint8Array(fs.readFileSync(path)).buffer
       const base64String = btoa(String.fromCharCode(...new Uint8Array(buffer)))
       return base64String

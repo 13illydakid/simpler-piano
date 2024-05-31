@@ -1,6 +1,10 @@
-import type { SongConfig } from '@/types';
+import type { SongConfig, SongSource } from '@/types';
 import type { InstrumentName } from '@/features/synth';
 export * from './batch-fetch';
+
+export function getKey(id: string, source: SongSource) {
+  return `${source}/${id}`;
+}
 
 export function peek(o: any) {
   console.log(o);
