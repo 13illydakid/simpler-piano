@@ -49,13 +49,13 @@ async function getMidishareManifest() {
     */
    console.log("!!!!!!!!!!!!!!!!!!!!!!Below!!!!!!!!!!!!!!!!!!!!!!!!");
   //  const revalidate = 60 * 60;
-   return (await fetch('https://midishare.dev/api/midis')).json();
+  return {};
+  //  return (await fetch('https://midishare.dev/api/midis')).json();
   //  return (await fetch('https://midishare.dev/api/midis', { next: { revalidate } })).json();
    console.log("!!!!!!!!!!!!!!!!!!!!!!Above!!!!!!!!!!!!!!!!!!!!!!!!");
     // return (await axios.get(`/music/songs`)).data;
     // return (await fetch(`/music/songs`)).json();
     // return manifest;
-    // return {};
   } catch (err: any) {
     console.error(`${new Date().toUTCString()}: Error reaching songs folder`, err)
     return {}
