@@ -57,6 +57,7 @@ export default function AppBar() {
           })}
           <NavLink
             href={'https://github.com/13illydakid'}
+            target="_blank" rel="noopener noreferrer"
             className="rounded-full pr-8 lgminus:pr-0 ml-auto flex gap-2 items-center text-white hover:bg-black hover:opacity-90"
           >
             <GithubIcon size={16} className="relative t-[2px]" />
@@ -92,7 +93,7 @@ function SmallWindowNav() {
 }
 
 function NavLink(
-  props: PropsWithChildren<{ href: string; className?: string; style?: any; label?: string }>,
+  props: PropsWithChildren<{ href: string; target?: string; rel?: string; className?: string; style?: any; label?: string }>,
 ) {
   const currentRoute = useRouter().route;
   return (
