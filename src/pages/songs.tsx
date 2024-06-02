@@ -57,7 +57,7 @@ async function getMidishareManifest() {
     // return (await fetch(`/music/songs`)).json();
     // return manifest;
   } catch (err: any) {
-    console.error(`${new Date().toUTCString()}: Error reaching songs folder`, err)
+    console.error(`${new Date().toUTCString()}: Error reaching songs folder`)
     return {}
   }
 }
