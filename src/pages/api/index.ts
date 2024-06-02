@@ -1,3 +1,4 @@
+/*
 import express from 'express';
 // const express = require('express');
 import { createProxyMiddleware } from 'http-proxy-middleware';
@@ -71,3 +72,4 @@ app.get('/test', async (req, res) => {
 
 app.listen(`https://${process.env.VERCEL_URL}`);
 // app.listen(3000);
+*/
