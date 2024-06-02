@@ -10,7 +10,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const songManifest = require('@/manifest.json');
 const map: Map<string, SongMetadata> = new Map(songManifest.map((s: SongMetadata) => [s.id, s]));
 
-
+/*
 export default async function handler(req: NextRequest, res: NextResponse<any>) {
   const { searchParams } = new URL(req.url);
   const { id, source } = Object.fromEntries(searchParams);
@@ -46,10 +46,10 @@ export default async function handler(req: NextRequest, res: NextResponse<any>) 
     return fetch(`https://${process.env.VERCEL_URL}/${path}`);
   }
 }
+*/
 
 
 
-/*
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   const { id, source } = req.query;
   if (!id || !source) {
@@ -104,4 +104,4 @@ async function proxy(stream: Stream, res: NextApiResponse<any>) {
     stream.pipe(res);
   });
 }
-*/
+
