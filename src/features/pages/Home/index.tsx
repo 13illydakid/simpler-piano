@@ -44,7 +44,7 @@ export default function Home() {
             <div className="flex-grow bg-gray-100">
               {/* Your page content goes here */}
               <div className="p-8 bg-gradient-to-r from-white to-black flex flex-col items-center text-center w-full">
-                <br />
+                <br /> 
                 <br />
                 <br />
                 <br />

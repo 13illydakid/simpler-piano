@@ -1,7 +1,6 @@
 import { SongMetadata, SongSource } from '@/types'
 import { getKey } from '@/utils';
 import songManifest from '@/manifest.json';
-import { atom, useAtomValue, useSetAtom } from 'jotai';
 
 const songsMetadata: Map<string, SongMetadata> = new Map()
 
@@ -27,6 +26,6 @@ export function getSongMetadata(id: string, source: SongSource) {
   return songsMetadata.get(key)
 }
 
-export const midishareMetadataAtom = atom<Array<[string, SongMetadata]>>([]);
+// export const midishareMetadataAtom = atom<Array<[string, SongMetadata]>>([]);
 
 addMetadata(Object.values(songManifest) as any)

@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import * as React from 'react';
 import { useState, useEffect } from 'react';
@@ -14,8 +14,8 @@ import { UploadForm, Table } from './components';
 import Head from 'next/head';
 import { useSongManifest } from '@/features/data';
 import { getUploadedLibrary } from '@/features/persist';
-import { useHydrateAtoms } from 'jotai/utils';
-import { midishareMetadataAtom } from '@/features/data/library';
+// import { useHydrateAtoms } from 'jotai/utils';
+// import { midishareMetadataAtom } from '@/features/data/library';
 
 function getDifficultyLabel(s: number): DifficultyLabel {
   if (!s) {
@@ -36,13 +36,14 @@ function getDifficultyLabel(s: number): DifficultyLabel {
 }
 
 // TODO: after an upload, scroll to the newly uploaded song / make it focused.
-export default function SelectSongPage({ midishareMetadata }: any) {
+// export default function SelectSongPage({ midishareMetadata }: any) {
+export default function SelectSongPage() {
   const [songs, addSongs] = useSongManifest();
   const [isUploadFormOpen, setUploadForm] = useState<boolean>(false);
   const [selectedSongId, setSelectedSongId] = useState<any>('');
   const selectedSongMeta = songs.find((s) => s.id === selectedSongId);
   const [search, setSearch] = useState('');
-  useHydrateAtoms([[midishareMetadataAtom, midishareMetadata]]);
+  // useHydrateAtoms([[midishareMetadataAtom, midishareMetadata]]);
 
   const uploadedLibrary = getUploadedLibrary();
   useEffect(() => {
