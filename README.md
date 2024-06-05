@@ -59,8 +59,9 @@ visuals. Can also be used simply as a media player.
 <a id="base-functions-upload"></a>
 <div id="upload">
 
+
 <p align="">
-<img src="./public/images/song-upload.png" height="50px"
+<img src="./public/images/song-upload.png" width="10%"
 style="display: inline-block;">
 </p>
 
@@ -75,7 +76,7 @@ Upload
 <div id="preview">
 
 <p align="">
-<img src="./public/images/song-preview.png" height="50px"
+<img src="./public/images/song-preview.png" width="10%"
 style="display: inline-block;">
 </p>
 
@@ -90,13 +91,13 @@ Preview
 <div id="connect">
 
 <p align="">
-<img src="./public/images/connect-midi.png" height="50px"
+<img src="./public/images/connect-midi.png" width="10%"
 style="display: inline-block;">
 </p>
 
-Connect external Piano with midi cable
+Connecting external Piano
 
--
+- Application works in tandem with an external Piano via midi cable connection.
 
 </div><br>
 
@@ -112,7 +113,7 @@ Connect external Piano with midi cable
 <!-- -->
 <a id="home"></a>
 <p align="">
-  <img src="./public/images/home.png" height="50px" style="display: inline-block;">
+  <img src="./public/images/home.png" width="10%" style="display: inline-block;">
 </p>
 
 Home
@@ -122,7 +123,7 @@ Home
 
 <a id="library"></a>
 <p align="">
-  <img src="./public/images/library.png" height="50px" style="display: inline-block;">
+  <img src="./public/images/library.png" width="10%" style="display: inline-block;">
 </p>
 
 Library
@@ -132,7 +133,7 @@ Library
 
 <a id="piano"></a>
 <p align="">
-  <img src="./public/images/piano-freeplay.png" height="50px" style="display: inline-block;">
+  <img src="./public/images/piano-freeplay.png" width="10%" style="display: inline-block;">
 </p>
 
 Piano
@@ -173,7 +174,7 @@ Toggle Left and Right hand notes
 
 <a id="custom"></a>
 <p align="">
-  <img src="./public/images/" width="300px" style="display: inline-block;">
+  <img src="./public/images/custom.png" width="300px" style="display: inline-block;">
 </p>
 
 Custom
@@ -182,7 +183,7 @@ Custom
 
 <a id="loop"></a>
 <p align="">
-  <img src="./public/images/custom.png" width="300px" style="display: inline-block;">
+  <img src="./public/images/loop.png" width="300px" style="display: inline-block;">
 </p>
 
 Loop
