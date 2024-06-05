@@ -61,7 +61,7 @@ visuals. Can also be used simply as a media player.
 
 
 <p align="">
-<img src="./public/images/song-upload.png" width="10%"
+<img src="./public/images/song-upload.png" width="300px"
 style="display: inline-block;">
 </p>
 
@@ -76,7 +76,7 @@ Upload
 <div id="preview">
 
 <p align="">
-<img src="./public/images/song-preview.png" width="10%"
+<img src="./public/images/song-preview.png" width="300px"
 style="display: inline-block;">
 </p>
 
@@ -91,7 +91,7 @@ Preview
 <div id="connect">
 
 <p align="">
-<img src="./public/images/connect-midi.png" width="10%"
+<img src="./public/images/connect-midi.png" width="300px"
 style="display: inline-block;">
 </p>
 
@@ -113,7 +113,7 @@ Connecting external Piano
 <!-- -->
 <a id="home"></a>
 <p align="">
-  <img src="./public/images/home.png" width="10%" style="display: inline-block;">
+  <img src="./public/images/home.png" width="300px" style="display: inline-block;">
 </p>
 
 Home
@@ -123,7 +123,7 @@ Home
 
 <a id="library"></a>
 <p align="">
-  <img src="./public/images/library.png" width="10%" style="display: inline-block;">
+  <img src="./public/images/library.png" width="300px" style="display: inline-block;">
 </p>
 
 Library
@@ -133,7 +133,7 @@ Library
 
 <a id="piano"></a>
 <p align="">
-  <img src="./public/images/piano-freeplay.png" width="10%" style="display: inline-block;">
+  <img src="./public/images/piano-freeplay.png" width="300px" style="display: inline-block;">
 </p>
 
 Piano
