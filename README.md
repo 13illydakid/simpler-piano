@@ -60,25 +60,20 @@ visuals. Can also be used simply as a media player.
 <div id="upload">
 
 
-<p align="">
-<img src="./public/images/song-upload.png" width="300px"
-style="display: inline-block;">
-</p>
 
 Upload
 
 - Either drag and drop or click to browse for a midi file from your system then upload. The file is stored in your web browser's memory and will still be found in the your library under the 'upload' category in future
   sessions.
 
+<p align="">
+<img src="./public/images/song-upload.png" width="300px"
+style="display: inline-block;">
+</p>
 
 </div>
 
 <div id="preview">
-
-<p align="">
-<img src="./public/images/song-preview.png" width="300px"
-style="display: inline-block;">
-</p>
 
 Preview
 
@@ -86,18 +81,23 @@ Preview
 
 - Click the play button in the center to start the song. This can also be used as a simple background media player.
 
+<p align="">
+<img src="./public/images/song-preview.png" width="300px"
+style="display: inline-block;">
+</p>
+
 </div>
 
 <div id="connect">
+
+Connecting external Piano
+
+- Application works in tandem with an external Piano via midi cable connection.
 
 <p align="">
 <img src="./public/images/connect-midi.png" width="300px"
 style="display: inline-block;">
 </p>
-
-Connecting external Piano
-
-- Application works in tandem with an external Piano via midi cable connection.
 
 </div><br>
 
@@ -112,34 +112,34 @@ Connecting external Piano
 
 <!-- -->
 <a id="home"></a>
-<p align="">
-  <img src="./public/images/home.png" width="300px" style="display: inline-block;">
-</p>
 
 Home
 
 - Shows a preview of a pre-selected track for demo purposes.
 
+<p align="">
+  <img src="./public/images/home.png" width="300px" style="display: inline-block;">
+</p>
 
 <a id="library"></a>
-<p align="">
-  <img src="./public/images/library.png" width="300px" style="display: inline-block;">
-</p>
 
 Library
 
 - Library description
 
+<p align="">
+  <img src="./public/images/library.png" width="300px" style="display: inline-block;">
+</p>
 
 <a id="piano"></a>
-<p align="">
-  <img src="./public/images/piano-freeplay.png" width="300px" style="display: inline-block;">
-</p>
 
 Piano
 
 - Simulates piano for freeplaying
 
+<p align="">
+  <img src="./public/images/piano-freeplay.png" width="300px" style="display: inline-block;">
+</p>
 
 <br>
 
@@ -153,52 +153,56 @@ Piano
 <img src="./public/images/settings.png" width="100%">
 
 <a id="speed"></a>
-<p align="">
-  <img src="./public/images/speed.png" width="300px" style="display: inline-block;">
-</p>
 
 Speed
 
 - Can increase or decrease the speed of the song playing.
 
+<p align="">
+  <img src="./public/images/speed.png" width="300px" style="display: inline-block;">
+</p>
 
 <a id="hands"></a>
+
+
+Toggle Left and Right hand notes
+
+- Turn on or turn off left hand notes and/or right hand notes.
+
 <p align="">
   <img src="./public/images/hands.png" width="300px" style="display: inline-block;">
 </p>
 
-Toggle Left and Right hand notes
-
-
-- Turn on or turn off left hand notes and/or right hand notes.
-
 <a id="custom"></a>
+
+Customizations
+
+-
 <p align="">
   <img src="./public/images/custom.png" width="300px" style="display: inline-block;">
 </p>
 
-Custom
-
--
 
 <a id="loop"></a>
-<p align="">
-  <img src="./public/images/loop.png" width="300px" style="display: inline-block;">
-</p>
 
 Loop
 
 - Song will play in a loop continuosly.
 - User is able to specify start and end parameters.
 
+<p align="">
+  <img src="./public/images/loop.png" width="300px" style="display: inline-block;">
+</p>
+
 <a id="track"></a>
+
+Configure track
+
+-
+
 <p align="">
   <img src="./public/images/track.png" width="300px" style="display: inline-block;">
 </p>
-
-Customize track
-
--
 
 <h4 align="right" id="how-to-use">
 
@@ -209,13 +213,14 @@ Customize track
 </u>
 
 <a id="api"></a>
-<p align="">
-  <img src="./public/images/" width="300px" style="display: inline-block;">
-</p>
 
 Public Domain API
 
 - Backend application that allows for public access of midi files.
+
+<!-- <p align="">
+  <img src="./public/images/" width="300px" style="display: inline-block;">
+</p> -->
 
 <hr>
 
