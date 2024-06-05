@@ -108,7 +108,7 @@ style="display: inline-block;">
 
 <u><h3 align="" id="pages"> `Pages` </h3></u>
 </u>
-<img src="./public/images/" width="100%">
+<!-- <img src="./public/images/" width="100%"> -->
 
 <!-- -->
 <a id="home"></a>
@@ -201,7 +201,7 @@ Configure track
 -
 
 <p align="">
-  <img src="./public/images/configure-track.png" width="300px" style="display: inline-block;">
+  <img src="./public/images/configure-track.png" width="80%" style="display: inline-block;">
 </p>
 
 <br />
