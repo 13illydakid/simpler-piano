@@ -56,7 +56,7 @@ export default function AppBar() {
             );
           })}
           <NavLink
-            href={'https://github.com/13illydakid'}
+            href={'https://github.com/13illydakid/simpler-piano'}
             target="_blank" rel="noopener noreferrer"
             className="rounded-full pr-8 lgminus:pr-0 ml-auto flex gap-2 items-center text-white hover:bg-black hover:opacity-90"
           >
