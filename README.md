@@ -1,6 +1,6 @@
 <a id="top"></a>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/logo192.png" width="100" height="100">
+  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/logo192.png" width="100" height="100">
 </p>
 <div align="center">
   <a href="https://piano.billy-chiu.com"><h1>Simpler Piano</h1></a>
@@ -59,7 +59,7 @@ visuals. Can also be used simply as a media player.
 <div id="upload">
 
 <p align="">
-<img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/song-upload.png" height="50px"
+<img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/song-upload.png" height="50px"
 style="display: inline-block;">
 </p>
 
@@ -74,7 +74,7 @@ Upload
 <div id="preview">
 
 <p align="">
-<img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/song-preview.png" height="50px"
+<img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/song-preview.png" height="50px"
 style="display: inline-block;">
 </p>
 
@@ -89,7 +89,7 @@ Preview
 <div id="connect">
 
 <p align="">
-<img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/connect-midi.png" height="50px"
+<img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/connect-midi.png" height="50px"
 style="display: inline-block;">
 </p>
 
@@ -106,12 +106,12 @@ Connect external Piano with midi cable
 
 <u><h3 align="" id="pages"> `Pages` </h3></u>
 </u>
-<img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/" width="100%">
+<img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/" width="100%">
 
 <!-- -->
 <a id="home"></a>
 <p align="">
-  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/home.png" height="50px" style="display: inline-block;">
+  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/home.png" height="50px" style="display: inline-block;">
 </p>
 
 Home
@@ -121,7 +121,7 @@ Home
 
 <a id="library"></a>
 <p align="">
-  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/library.png" height="50px" style="display: inline-block;">
+  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/library.png" height="50px" style="display: inline-block;">
 </p>
 
 Library
@@ -131,7 +131,7 @@ Library
 
 <a id="piano"></a>
 <p align="">
-  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/piano-freeplay.png" height="50px" style="display: inline-block;">
+  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/piano-freeplay.png" height="50px" style="display: inline-block;">
 </p>
 
 Piano
@@ -148,11 +148,11 @@ Piano
 
 <u><h3 align="" id="settings"> `Midi Player Settings` </h3></u>
 </u>
-<img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/settings.png" width="100%">
+<img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/settings.png" width="100%">
 
 <a id="speed"></a>
 <p align="">
-  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/speed.png" width="300px" style="display: inline-block;">
+  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/speed.png" width="300px" style="display: inline-block;">
 </p>
 
 Speed
@@ -162,7 +162,7 @@ Speed
 
 <a id="hands"></a>
 <p align="">
-  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/hands.png" width="300px" style="display: inline-block;">
+  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/hands.png" width="300px" style="display: inline-block;">
 </p>
 
 Toggle Left and Right hand notes
@@ -172,7 +172,7 @@ Toggle Left and Right hand notes
 
 <a id="custom"></a>
 <p align="">
-  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/" width="300px" style="display: inline-block;">
+  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/" width="300px" style="display: inline-block;">
 </p>
 
 Custom
@@ -181,7 +181,7 @@ Custom
 
 <a id="loop"></a>
 <p align="">
-  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/custom.png" width="300px" style="display: inline-block;">
+  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/custom.png" width="300px" style="display: inline-block;">
 </p>
 
 Loop
@@ -191,7 +191,7 @@ Loop
 
 <a id="track"></a>
 <p align="">
-  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/track.png" width="300px" style="display: inline-block;">
+  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/track.png" width="300px" style="display: inline-block;">
 </p>
 
 Customize track
@@ -208,7 +208,7 @@ Customize track
 
 <a id="api"></a>
 <p align="">
-  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/public/images/" width="300px" style="display: inline-block;">
+  <img src="https://raw.githubusercontent.com/13illydakid/simpler-piano/main/public/images/" width="300px" style="display: inline-block;">
 </p>
 
 Public Domain API
