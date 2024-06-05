@@ -202,7 +202,10 @@ Configure track
 
 <p align="">
   <img src="./public/images/track.png" width="300px" style="display: inline-block;">
+  <img src="./public/images/track.png" width="100%" style="display: inline-block;">
 </p>
+
+<br />
 
 <h4 align="right" id="how-to-use">
 
