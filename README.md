@@ -45,7 +45,7 @@ visuals. Can also be used simply as a media player.
   - [Upcoming Features](#upcoming)
     - [Public Domain API](#api)
 - [Resources](#resources)
-- [Available Scripts](#available-scripts)
+- [Getting Started](#getting-started)
 - [Learn More](#learn-more)
 
 <hr>
