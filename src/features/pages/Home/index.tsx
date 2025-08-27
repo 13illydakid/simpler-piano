@@ -1,6 +1,6 @@
 import { AppBar, Sizer } from '@/components';
 import Link from 'next/link';
-import React, { PropsWithChildren, useState } from 'react';
+import React, { useState } from 'react';
 import { Pause, Play } from '@/icons';
 import clsx from 'clsx';
 import { SongPreview } from '../../SongPreview/SongPreview';
@@ -14,27 +14,6 @@ export const FEATURED_SONGS: { [id: string]: { source: SongSource; id: string } 
   sindria: { source: 'builtin', id: 'b50ee876b785c66a70dba3159d21e81e' },
   lullaby: { source: 'builtin', id: 'bb4edb91d3a12b8c745e59b8435f74c2' },
 };
-
-function NavLink(
-  props: PropsWithChildren<{ href: string; target?: string; rel?: string; className?: string; style?: any; label?: string }>,
-) {
-  const currentRoute = useRouter().route;
-  return (
-    <Link
-      {...props}
-      className={clsx(
-        props.className,
-        'transition',
-        currentRoute === props.href && 'font-bold',
-        props.label &&
-          'after:block after:font-bold after:overflow-hidden after:invisible after:text-transparent after:h-0 after:content-[attr(label)]',
-      )}
-      data-label={props.label}
-    >
-      {props.label ?? props.children}
-    </Link>
-  );
-}
 
 export default function Home() {
   const [playerState, playerActions] = usePlayerState();
@@ -57,7 +36,9 @@ export default function Home() {
         <title>Simpler Piano</title>
       </Head>
       <div className="relative min-h-screen w-full bg-gradient-to-br from-black via-[#1a1a2e] to-[#0f3460] text-white flex flex-col">
+        <div className='z-20'>
         <AppBar />
+        </div>
         {/* Hero Section */}
         <section className="flex flex-col items-center justify-center py-24 px-4 text-center relative z-10">
           <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl shadow-2xl p-10 max-w-2xl mx-auto animate-fade-in">
@@ -70,21 +51,23 @@ export default function Home() {
               Plug in your MIDI keyboard and play like a pro.
             </p>
             <div className="flex gap-4 justify-center">
-              <NavLink href={'/songs'}>
-                <Button className="bg-gradient-to-r from-[#ff512f] to-[#dd2476] text-white shadow-lg hover:scale-105 hover:shadow-pink-500/40 transition-all duration-200">
-                  Get Started
-                </Button>
-              </NavLink>
-              <NavLink href={'/freeplay'}>
-              <Button className="bg-gradient-to-r from-[#1fa2ff] to-[#12d8fa] text-white shadow-lg hover:scale-105 hover:shadow-blue-500/40 transition-all duration-200">
+              <Button
+                className="bg-gradient-to-r from-[#ff512f] to-[#dd2476] text-white shadow-lg hover:scale-105 hover:shadow-pink-500/40 transition-all duration-200"
+                onClick={() => { window.location.href = '/songs'; }}
+              >
+                Get Started
+              </Button>
+              <Button
+                className="bg-gradient-to-r from-[#1fa2ff] to-[#12d8fa] text-white shadow-lg hover:scale-105 hover:shadow-blue-500/40 transition-all duration-200"
+                onClick={() => { window.location.href = '/freeplay'; }}
+              >
                 Free Play
               </Button>
-              </NavLink>
             </div>
           </div>
         </section>
         {/* Featured Song Preview Card */}
-        <section className="flex flex-col items-center justify-center flex-1">
+        <section className="flex flex-col items-center justify-center flex-1 z-20">
           <div
             className={clsx(
               'relative w-full max-w-[950px] h-[500px] self-center mt-[-60px] animate-card-pop',
@@ -205,10 +188,12 @@ function Button({
   children,
   style,
   className,
+  onClick,
 }: {
   children?: React.ReactChild;
   style?: React.CSSProperties;
   className?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
     <button
@@ -224,6 +209,7 @@ function Button({
         width: '100%',
         ...style,
       }}
+      onClick={onClick}
     >
       {children}
     </button>
