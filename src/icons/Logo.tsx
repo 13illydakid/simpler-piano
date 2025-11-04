@@ -38,19 +38,19 @@ export default function Logo(props: IconProps) {
         <filter x="0%" y="0%" width="100%" height="100%" id="1766e094a0">
           <feColorMatrix
             values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           />
         </filter>
         <filter x="0%" y="0%" width="100%" height="100%" id="109fc31a20">
           <feColorMatrix
             values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.2126 0.7152 0.0722 0 0"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           />
         </filter>
         <clipPath id="c6c3b871ff">
           <path
             d="M 0 0.0390625 L 490 0.0390625 L 490 564.960938 L 0 564.960938 Z M 0 0.0390625 "
-            clip-rule="nonzero"
+            clipRule="nonzero"
           />
         </clipPath>
         <image
@@ -89,7 +89,7 @@ export default function Logo(props: IconProps) {
           preserveAspectRatio="xMidYMid meet"
         />
       </defs>
-      <g clip-path="url(#c6c3b871ff)">
+      <g clipPath="url(#c6c3b871ff)">
         <g mask="url(#82e8f1ac2c)">
           <g transform="matrix(0.275842, 0, 0, 0.275842, -37.461811, 0.0381504)">
             <image

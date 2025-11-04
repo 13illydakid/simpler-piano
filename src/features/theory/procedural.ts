@@ -197,6 +197,8 @@ async function getMeasuresForChord(
     filename = `/music/irish/Left Hand/${chord.toString()}_Lvl_${bassLevel}_LH.mid`;
   }
 
+  // Route via API to ensure proper headers and local dev support
+  const url = `/api/midi-static?path=${encodeURIComponent(filename.slice(1))}`;
   const handler: ResponseHandler<Measure[]> = (res) =>
     res
       .arrayBuffer()
@@ -206,7 +208,7 @@ async function getMeasuresForChord(
         console.error(e);
         return [];
       });
-  return batchedFetch(filename, handler);
+  return batchedFetch(url, handler);
 }
 
 const dMajorBackingTracks = [
@@ -296,7 +298,6 @@ function getRandomSong(level: number, options: { bass: boolean; treble: boolean 
       measure: Math.floor(time / 4),
     };
     if (options.bass) {
-      console.log('making bass');
       const { min, max } = octaves.bass;
       notes.push({ ...sharedNotes, track: 1, midiNote: getRandomNote(min, max, 'C') });
     }
@@ -330,7 +331,6 @@ function sort<T extends { time: number }>(arr: T[]): T[] {
 
 function randomChoice<T>(arr: T[]): T | undefined {
   if (!arr || !arr.length) {
-    console.log('shouldnt happen');
     return;
   }
 

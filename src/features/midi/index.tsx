@@ -38,9 +38,10 @@ export function disableMidiDevice(deviceParam: WebMidi.MIDIInput) {
 setupMidiDeviceListeners()
 async function setupMidiDeviceListeners() {
   const inputs = await getMidiInputs()
-  for (const device of inputs.values()) {
+  // Use forEach to avoid iterating MapIterator which requires downlevelIteration/ES2015
+  inputs.forEach((device) => {
     enableMidiDevice(device)
-  }
+  })
 }
 
 type MidiEvent = {

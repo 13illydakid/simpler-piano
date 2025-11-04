@@ -1,4 +1,4 @@
-import { InstrumentName } from '@/features/synth';
+import { InstrumentName } from './features/synth';
 import { KEY_SIGNATURE } from './features/theory';
 
 export type DifficultyLabel =

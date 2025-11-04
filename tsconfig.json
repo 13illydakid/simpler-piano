@@ -1,30 +1,35 @@
 {
   "compilerOptions": {
-    "types": ["bun-types", "jest", "webmidi"],
-    // Enable latest features
-    "lib": ["esnext", "dom", "dom.iterable"],
-    "module": "esnext",
-    "target": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "allowImportingTsExtensions": true,
-    "moduleDetection": "force",
-    "jsx": "preserve",
-    "allowJs": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "downlevelIteration": true,
+    "target": "es2015",
+    "lib": [
+      "es2015",
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     },
-    "incremental": true
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

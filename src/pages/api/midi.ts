@@ -1,54 +1,14 @@
 import type { Stream } from 'stream';
 import { IncomingMessage } from 'http';
 import type { NextApiRequest, NextApiResponse } from 'next';
-// import fs, { ReadStream } from 'fs';
 import fs from 'fs';
 import { SongMetadata } from '@/types';
 import https from 'https';
-import { NextRequest, NextResponse } from 'next/server';
 
 const songManifest = require('@/manifest.json');
 const map: Map<string, SongMetadata> = new Map(songManifest.map((s: SongMetadata) => [s.id, s]));
 
-/*
-export default async function handler(req: NextRequest, res: NextResponse<any>) {
-  const { searchParams } = new URL(req.url);
-  const { id, source } = Object.fromEntries(searchParams);
-  const supportedSources = new Set(['builtin', 'midishare']);
-
-  if (!id || !source) {
-    return new Response('Must provide both a a source and an id.', { status: 400 });
-  } else if (Array.isArray(id) || Array.isArray(source)) {
-    return new Response('Must only provide a single id and source.', { status: 400 });
-  } else if (!supportedSources.has(source)) {
-    return new Response(`Received invalid source: ${source}`, { status: 400 });
-  }
-
-  if (source === 'midishare') {
-    return fetch(`https://assets.midishare.dev/scores/${id}/${id}.mid`);
-  }
-  const path = map.get(id)?.file;
-  if (!path) {
-    return new Response(`Could not find midi with id: "${id}"`, { status: 404 });
-  }
-
-  if (process.env.NODE_ENV === 'development') {
-    const body = fs.readFileSync(`public/${path}`);
-    const basename = path.substring(path.lastIndexOf('/') + 1);
-    return new Response(body, {
-      headers: {
-        'Content-Type': 'audio/midi',
-        'Content-Disposition': `attachment; filename="${basename}"`,
-      },
-    });
-  } else {
-    console.log(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
-    return fetch(`https://${process.env.VERCEL_URL}/${path}`);
-  }
-}
-*/
-
-
+// Serve built-in MIDI files with correct headers in dev and prod
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   const { id, source } = req.query;
@@ -63,7 +23,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return;
   }
   let stream: Stream;
-  // if (source === 'builtin' || source === 'midishare') {
   if (source === 'builtin') {
     const path = map.get(id)?.file;
     if (!path) {
@@ -75,7 +34,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     // When deployed we don't have access to fs, but can proxy to the hosted /public.
     if (process.env.NODE_ENV === 'development') {
       stream = fs.createReadStream(`public/${path}`);
-      console.log(`Requesting URL: https://${process.env.VERCEL_URL}/${path}`);
+      return proxy(stream, res);
     } else {
       // When deployed, make a GET request to the file in the public directory
       stream = await get(`https://${process.env.VERCEL_URL}/${path}`);
@@ -86,7 +45,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     res.status(400).send('Invalid source');
     return;
   }
-  // return proxy(await get(`https://${process.env.VERCEL_URL}/music/songs`), res);
 }
 
 async function get(url: string): Promise<IncomingMessage> {
@@ -104,4 +62,3 @@ async function proxy(stream: Stream, res: NextApiResponse<any>) {
     stream.pipe(res);
   });
 }
-

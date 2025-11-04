@@ -1,5 +1,4 @@
 import '@/styles/global.css';
-import axios from 'axios';
 import type { AppProps } from 'next/app';
 import * as React from 'react';
 import { useRouter } from 'next/router';
@@ -15,10 +14,7 @@ const inter = Inter({
   variable: '--primary-font-family',
 });
 
-// axios.defaults.baseURL = 'postgres://default:XBy6wI9ibYcH@ep-bitter-feather-72486321.us-west-2.postgres.vercel-storage.com:5432/verceldb';
-// axios.defaults.baseURL = '../../../backend/routes/api';
-// axios.defaults.baseURL = (`https://${process.env.VERCEL_URL}`);
-// axios.defaults.withCredentials = true;
+// Removed legacy axios baseURL scaffolding
 
 function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
